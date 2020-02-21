@@ -18,20 +18,25 @@ class _GamePageState extends State<GamePage> {
       appBar: AppBar(
         title: Text(widget.category),
       ),
-      body: Column(
-        children: <Widget>[
-          TextField(
-            controller: _controller,
-            autofocus: true,
-            decoration: InputDecoration(
-                filled: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12.0),
-                ),
-                hintText: 'Enter Term'),
-            maxLength: 20,
-          )
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('Match 1 word with: \nHello'),
+            TextField(
+              controller: _controller,
+              autofocus: true,
+              decoration: InputDecoration(
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
+                  hintText: 'Enter Term'),
+              maxLength: 20,
+            )
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.send),
