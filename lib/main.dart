@@ -38,7 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset('assets/TrendsWithFriendsLogo.png', fit: BoxFit.cover),
+        title: Image.asset('assets/TrendsWithFriendsLogo.png', height: 50,),
+        backgroundColor: Color(0xfffafafa),
+        elevation: 0.0, // remove shadow
       ),
       body: Center(
         child: Column(
