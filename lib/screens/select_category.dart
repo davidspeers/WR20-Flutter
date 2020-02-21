@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trends_with_friends/screens/game.dart';
+import 'package:trends_with_friends/widgets/category_tile.dart';
 
 class SelectCategoryPage extends StatefulWidget {
   SelectCategoryPage({Key key}) : super(key: key);
@@ -17,28 +17,10 @@ class _SelectCategoryPageState extends State<SelectCategoryPage> {
       ),
       body: ListView(
         children: <Widget>[
-          ListTile(
-            leading: Icon(Icons.account_balance),
-            title: Text('Government'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => GamePage(category: 'Government',)),
-              );
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.monetization_on),
-            title: Text('Cryptocurrency'),
-          ),
-          ListTile(
-            leading: Icon(Icons.android),
-            title: Text('Technology'),
-          ),
-          ListTile(
-            leading: Icon(Icons.flare),
-            title: Text('Star Wars'),
-          ),
+          CategoryTile(name: 'Government', icon: Icons.account_balance),
+          CategoryTile(name: 'Cryptocurrency', icon: Icons.monetization_on),
+          CategoryTile(name: 'Technology', icon: Icons.android),
+          CategoryTile(name: 'Star Wars', icon: Icons.flare),
         ],
       ),
     );
