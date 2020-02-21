@@ -10,6 +10,8 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
+  final _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +21,7 @@ class _GamePageState extends State<GamePage> {
       body: Column(
         children: <Widget>[
           TextField(
+            controller: _controller,
             autofocus: true,
             decoration: InputDecoration(
                 filled: true,
@@ -29,6 +32,10 @@ class _GamePageState extends State<GamePage> {
             maxLength: 20,
           )
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.send),
+        onPressed: () => print(_controller.text),
       ),
     );
   }
