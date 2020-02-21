@@ -14,6 +14,7 @@ class _GamePageState extends State<GamePage> {
 
   @override
   Widget build(BuildContext context) {
+    final _wordToMatch = getWord(widget.category);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.category),
@@ -24,7 +25,7 @@ class _GamePageState extends State<GamePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              'Match 1 word with: \nHello',
+              'Match 1 word with: \n$_wordToMatch',
               style: TextStyle(fontSize: 30.0),
             ),
             Container(
@@ -49,5 +50,58 @@ class _GamePageState extends State<GamePage> {
         onPressed: () => print(_controller.text),
       ),
     );
+  }
+
+  String getWord(String category) {
+    switch (category) {
+      case 'Government':
+        return ([
+          'Treason',
+          'Constitution',
+          'Spy',
+          'Hacking',
+          'Emails',
+          'Probe',
+          'Investigation',
+          'Prison'
+        ]..shuffle())
+            .first;
+      case 'Cryptocurrency':
+        return ([
+          'Coin',
+          'Block',
+          'Farm',
+          'Regulation',
+          'Payment',
+          'Mining',
+          'Hold',
+          'Chain'
+        ]..shuffle())
+            .first;
+      case 'Technology':
+        return ([
+          'Tech',
+          'Board',
+          'Battery',
+          'Facebook',
+          'Fortnite',
+          'Russia',
+          'Collision',
+          'Zuckerberg'
+        ]..shuffle())
+            .first;
+      case 'Star Wars':
+        return ([
+          'Saber',
+          'Force',
+          'Blaster',
+          'Jedi',
+          'Speeder',
+          'Space',
+          'Emperor',
+          'Projection'
+        ]..shuffle())
+            .first;
+    }
   }
 }
