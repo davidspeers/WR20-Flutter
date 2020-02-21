@@ -47,7 +47,9 @@ class _GamePageState extends State<GamePage> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.send),
-        onPressed: () => print(_controller.text),
+        onPressed: () => {
+          if (_controller.text.trim().isNotEmpty) {print(_controller.text)}
+        },
       ),
     );
   }
