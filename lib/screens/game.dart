@@ -16,6 +16,20 @@ class _GamePageState extends State<GamePage> {
       appBar: AppBar(
         title: Text(widget.category),
       ),
+      body: Column(
+        children: <Widget>[
+          TextField(
+            autofocus: true,
+            decoration: InputDecoration(
+                filled: true,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                hintText: 'Enter Term'),
+            maxLength: 20,
+          )
+        ],
+      ),
     );
   }
 }
