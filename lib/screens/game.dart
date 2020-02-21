@@ -19,11 +19,17 @@ class _GamePageState extends State<GamePage> {
         title: Text(widget.category),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.fromLTRB(8.0, 30.0, 8.0, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Match 1 word with: \nHello'),
+            Text(
+              'Match 1 word with: \nHello',
+              style: TextStyle(fontSize: 30.0),
+            ),
+            Container(
+              height: 30.0,
+            ),
             TextField(
               controller: _controller,
               autofocus: true,
