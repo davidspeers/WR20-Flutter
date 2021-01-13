@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trends_with_friends/screens/results.dart';
 
 class GamePage extends StatefulWidget {
   GamePage({Key key, @required this.category}) : super(key: key);
@@ -46,11 +47,19 @@ class _GamePageState extends State<GamePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.send),
-        onPressed: () => {
-          if (_controller.text.trim().isNotEmpty) {print(_controller.text)}
-        },
-      ),
+          child: Icon(Icons.send),
+          onPressed: () => {
+                if (_controller.text.trim().isNotEmpty)
+                  {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ResultsPage(
+                              query: _wordToMatch,
+                              userAnswer: _controller.text),
+                        )),
+                  },
+              }),
     );
   }
 
