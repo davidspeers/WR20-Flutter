@@ -20,8 +20,8 @@ class Trends {
     return new Trends(
         userAnswer: json['user']['answer'],
         cpuAnswer: json['cpu']['answer'],
-        userWeeklyScores: json['user']['weeklyScores'],
-        cpuWeeklyScores: json['cpu']['weeklyScores']);
+        userWeeklyScores: json['user']['weeklyScores'].cast<int>(),
+        cpuWeeklyScores: json['cpu']['weeklyScores'].cast<int>());
   }
 }
 
