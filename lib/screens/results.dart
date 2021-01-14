@@ -15,25 +15,27 @@ class ResultsPage extends StatefulWidget {
 class _ResultsPageState extends State<ResultsPage> {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: getTrends(widget.query, widget.userAnswer),
-        builder: (BuildContext context, AsyncSnapshot<Trends> snapshot) {
-          if (!snapshot.hasData)
-            return Center(child: CircularProgressIndicator());
-          return Column(
-            children: [
-              ScoreTile(
-                  title: 'User Answer:',
-                  answer: snapshot.data.userAnswer,
-                  score: snapshot.data.userWeeklyScores.last,
-                  color: Colors.blue),
-              ScoreTile(
-                  title: 'CPU Answer:',
-                  answer: snapshot.data.cpuAnswer,
-                  score: snapshot.data.cpuWeeklyScores.last,
-                  color: Colors.red)
-            ],
-          );
-        });
+    return Scaffold(
+      body: FutureBuilder(
+          future: getTrends(widget.query, widget.userAnswer),
+          builder: (BuildContext context, AsyncSnapshot<Trends> snapshot) {
+            if (!snapshot.hasData)
+              return Center(child: CircularProgressIndicator());
+            return Column(
+              children: [
+                ScoreTile(
+                    title: 'User Answer:',
+                    answer: snapshot.data.userAnswer,
+                    score: snapshot.data.userWeeklyScores.last,
+                    color: Colors.blue),
+                ScoreTile(
+                    title: 'CPU Answer:',
+                    answer: snapshot.data.cpuAnswer,
+                    score: snapshot.data.cpuWeeklyScores.last,
+                    color: Colors.red)
+              ],
+            );
+          }),
+    );
   }
 }
