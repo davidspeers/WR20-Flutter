@@ -36,6 +36,10 @@ class _ResultsPageState extends State<ResultsPage> {
               ],
             );
           }),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.home),
+        onPressed: () => Navigator.popUntil(context, ModalRoute.withName('/')),
+      ),
     );
   }
 }
