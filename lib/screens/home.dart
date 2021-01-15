@@ -29,6 +29,7 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             IconButton(
               icon: Icon(Icons.play_circle_filled, color: Colors.blue),
+              tooltip: "Press to play",
               iconSize: 60.0,
               onPressed: () {
                 Navigator.push(

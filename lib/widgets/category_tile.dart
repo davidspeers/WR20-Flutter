@@ -11,7 +11,7 @@ class CategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(name),
+      title: Text(name, key: Key(name)),
       leading: Icon(icon),
       onTap: () {
         Navigator.push(

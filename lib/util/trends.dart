@@ -2,10 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-enum Player {
-  user,
-  cpu
-}
+enum Player { user, cpu }
 
 class Trends {
   Trends(
@@ -30,7 +27,10 @@ class Trends {
   }
 
   getAverageScore(Player player) {
-    return ((player == Player.user ? userWeeklyScores: cpuWeeklyScores).reduce((a, b) => a + b) / userWeeklyScores.length).round();
+    return ((player == Player.user ? userWeeklyScores : cpuWeeklyScores)
+                .reduce((a, b) => a + b) /
+            userWeeklyScores.length)
+        .round();
   }
 }
 
