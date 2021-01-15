@@ -26,12 +26,12 @@ class _ResultsPageState extends State<ResultsPage> {
                 ScoreTile(
                     title: 'User Answer:',
                     answer: snapshot.data.userAnswer,
-                    score: snapshot.data.userWeeklyScores.last,
+                    score: snapshot.data.getAverageScore(Player.user),
                     color: Colors.blue),
                 ScoreTile(
                     title: 'CPU Answer:',
                     answer: snapshot.data.cpuAnswer,
-                    score: snapshot.data.cpuWeeklyScores.last,
+                    score: snapshot.data.getAverageScore(Player.cpu),
                     color: Colors.red)
               ],
             );

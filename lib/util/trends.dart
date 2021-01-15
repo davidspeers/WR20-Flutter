@@ -2,6 +2,11 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
+enum Player {
+  user,
+  cpu
+}
+
 class Trends {
   Trends(
       {this.userAnswer,
@@ -22,6 +27,10 @@ class Trends {
         cpuAnswer: json['cpu']['answer'],
         userWeeklyScores: json['user']['weeklyScores'].cast<int>(),
         cpuWeeklyScores: json['cpu']['weeklyScores'].cast<int>());
+  }
+
+  getAverageScore(Player player) {
+    return ((player == Player.user ? userWeeklyScores: cpuWeeklyScores).reduce((a, b) => a + b) / userWeeklyScores.length).round();
   }
 }
 
