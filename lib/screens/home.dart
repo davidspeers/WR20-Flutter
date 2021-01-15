@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:trends_with_friends/screens/select_category.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class Home extends StatefulWidget {
+  Home({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomeState createState() => _HomeState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
           'assets/TrendsWithFriendsLogo.png',
           height: 50,
         ),
+        centerTitle: true,
         backgroundColor: Color(0xfffafafa),
         elevation: 0.0, // remove shadow
       ),
