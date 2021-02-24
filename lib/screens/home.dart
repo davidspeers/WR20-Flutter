@@ -71,6 +71,7 @@ class _HomeState extends State<Home> {
 
   final ThemeData lightMode = ThemeData(
     brightness: Brightness.light,
+    primaryColor: Colors.white,
   );
   final ThemeData darkMode = ThemeData(brightness: Brightness.dark);
 }
