@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trends_with_friends/screens/select_category.dart';
 
 class Home extends StatefulWidget {
@@ -12,6 +13,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   bool isDarkMode = false;
+  SharedPreferences prefs;
+
+  @override
+  void initState() {
+    super.initState();
+    _getThemeAndSetState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +41,7 @@ class _HomeState extends State<Home> {
                   color: isDarkMode ? Colors.white : Colors.black87,
                 ),
                 onPressed: () {
-                  _toggleDarkTheme();
+                  _toggleDarkMode();
                 },
               )
             ],
@@ -63,10 +71,19 @@ class _HomeState extends State<Home> {
     );
   }
 
-  void _toggleDarkTheme() {
+  void _getThemeAndSetState() async {
+    prefs = await SharedPreferences.getInstance();
+    var _isDarkMode = prefs.getBool('isDarkMode');
+    setState(() {
+      isDarkMode = _isDarkMode ? _isDarkMode : false;
+    });
+  }
+
+  Future<void> _toggleDarkMode() async {
     setState(() {
       isDarkMode ^= true;
     });
+    await prefs.setBool('isDarkMode', isDarkMode);
   }
 
   final ThemeData lightMode = ThemeData(
