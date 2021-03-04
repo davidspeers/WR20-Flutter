@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:trends_with_friends/facades/get_categories.dart';
 import 'package:trends_with_friends/widgets/category_tile.dart';
 
 class SelectCategoryPage extends StatefulWidget {
@@ -15,14 +17,19 @@ class _SelectCategoryPageState extends State<SelectCategoryPage> {
       appBar: AppBar(
         title: Text('Select Category'),
       ),
-      body: ListView(
-        children: <Widget>[
-          CategoryTile(name: 'Government', icon: Icons.account_balance),
-          CategoryTile(name: 'Cryptocurrency', icon: Icons.monetization_on),
-          CategoryTile(name: 'Technology', icon: Icons.android),
-          CategoryTile(name: 'Star Wars', icon: Icons.flare),
-        ],
-      ),
+      body: FutureBuilder(
+          future: getCategories(),
+          builder:
+              (BuildContext context, AsyncSnapshot<List<Category>> snapshot) {
+            if (!snapshot.hasData)
+              return Center(child: CircularProgressIndicator());
+            return ListView(
+              children: snapshot.data
+                  .map((category) =>
+                      CategoryTile(name: category.name, id: category.id))
+                  .toList(),
+            );
+          }),
     );
   }
 }
