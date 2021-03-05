@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trends_with_friends/widgets/fonts.dart';
 
 class AnswerTile extends StatefulWidget {
   const AnswerTile(
@@ -22,14 +23,22 @@ class _AnswerTileState extends State<AnswerTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(widget.text, key: Key(widget.text)),
-      color: this.getColor(),
+      child: Center(
+          child: Text(
+        widget.text,
+        key: Key(widget.text),
+        style: whiteTextSmallBlack,
+        textAlign: TextAlign.center,
+      )),
+      margin: EdgeInsets.all(10.0),
+      decoration:
+          BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20)), color: getColor()),
     );
   }
 
   Color getColor() {
     if (!widget.isQuestionAnswered) {
-      return Colors.white;
+      return Colors.black12;
     }
     if (widget.isCorrect) {
       return Colors.green;
@@ -37,6 +46,6 @@ class _AnswerTileState extends State<AnswerTile> {
     if (widget.isChosen) {
       return Colors.red;
     }
-    return Colors.white;
+    return Colors.black12;
   }
 }

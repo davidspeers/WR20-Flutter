@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trends_with_friends/facades/get_random_question.dart';
 import 'package:trends_with_friends/widgets/answer_tile.dart';
+import 'package:trends_with_friends/widgets/fonts.dart';
 
 class GamePage extends StatefulWidget {
   GamePage({Key key, @required this.categoryName, @required this.categoryId})
@@ -31,7 +32,7 @@ class _GamePageState extends State<GamePage> {
             print(answers);
             return Column(
               children: [
-                Text(snapshot.data.question),
+                Text(snapshot.data.question, style: whiteTextSmallBlack,),
                 GridView.count(
                   children: answers
                       .map((answer) => GridTile(
