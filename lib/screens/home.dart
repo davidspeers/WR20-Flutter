@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
         builder: (context) => Scaffold(
           appBar: AppBar(
             title: Image.asset(
-              'assets/TrendsWithFriendsLogo.png',
+              'assets/Logo.png',
               height: 50,
             ),
             centerTitle: true,
