@@ -30,24 +30,31 @@ class _GamePageState extends State<GamePage> {
               ..add(snapshot.data.correctAnswer)
               ..shuffle();
             print(answers);
-            return Column(
-              children: [
-                Text(snapshot.data.question, style: whiteTextSmallBlack,),
-                GridView.count(
-                  children: answers
-                      .map((answer) => GridTile(
-                            child: AnswerTile(
-                              text: answer,
-                              isCorrect: answer == snapshot.data.correctAnswer,
-                              isChosen: false,
-                              isQuestionAnswered: false,
-                            ),
-                          ))
-                      .toList(),
-                  crossAxisCount: 2,
-                  shrinkWrap: true,
-                )
-              ],
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Column(
+                children: [
+                  Text(
+                    snapshot.data.question,
+                    style: whiteTextSmallBlack,
+                  ),
+                  GridView.count(
+                    children: answers
+                        .map((answer) => GridTile(
+                              child: AnswerTile(
+                                text: answer,
+                                isCorrect:
+                                    answer == snapshot.data.correctAnswer,
+                                isChosen: false,
+                                isQuestionAnswered: false,
+                              ),
+                            ))
+                        .toList(),
+                    crossAxisCount: 2,
+                    shrinkWrap: true,
+                  )
+                ],
+              ),
             );
           }),
       floatingActionButton: FloatingActionButton(
